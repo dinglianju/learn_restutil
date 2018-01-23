@@ -31,7 +31,7 @@ public class RestUtilInit {
 	
 	@PostConstruct
 	public void init() {
-		System.out.println("enter init------>>");
+		//System.out.println("enter init------>>");
 		Set<Class<?>> requests = new Reflections("com.dlj").getTypesAnnotatedWith(Rest.class);
 		
 		for (Class<?> cls : requests) {
@@ -73,7 +73,7 @@ public class RestUtilInit {
 		GET annotation = method.getAnnotation(GET.class);
 		
 		String url = annotation.value();
-		System.out.println("----------url: " + url);
+		//System.out.println("----------url: " + url);
 		//没有配置路径取函数名称
 		if (StringUtils.isEmpty(url)) {
 			url = "/" + method.getName();
@@ -103,7 +103,7 @@ public class RestUtilInit {
 			Param param = parameters[i].getAnnotation(Param.class);
 			
 			if (param != null) {
-				System.out.println("---------param.value: " + param.value() + "; args[i]: " + String.valueOf(args[i]));
+				//System.out.println("---------param.value: " + param.value() + "; args[i]: " + String.valueOf(args[i]));
 				params.put(param.value(), String.valueOf(args[i]));
 			}
 		}
